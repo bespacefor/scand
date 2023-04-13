@@ -1,0 +1,51 @@
+@mixin font($font_name, $file_name, $weight, $style) {
+    @font-face {
+        font-family: $font_name;
+        font-display: swap;
+        src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+        font-weight: #{$weight};
+        font-style: #{$style};
+    }
+}
+
+@import "fonts";
+@import "vars";
+@import "header";
+@import "blog";
+@import "footer";
+@import "animation";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: $light-color;
+}
+
+a {
+    text-decoration: none;
+}
+
+.list {
+    list-style: none;
+}
+
+.wrapper {
+    max-width: $max-width;
+    margin: 0 auto;
+
+    @media (min-width: 900px) and (max-width: 1200px) {
+        max-width: 850px;
+    }
+
+    @media (min-width: 600px) and (max-width: 899px) {
+        max-width: 550px;
+    }
+
+    @media (min-width: 320px) and (max-width: 599px) {
+        max-width: 310px;
+    }
+}
