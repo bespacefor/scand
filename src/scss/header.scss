@@ -1,0 +1,104 @@
+.header {
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 56px 0 45px 0;
+        height: 100%;
+    }
+
+    &__navigation {
+        margin-right: 5px;
+
+        @media (max-width: 900px) {
+            display: none;
+        }
+    }
+
+    .burger {
+        display: none;
+
+        @media (max-width: 900px) {
+            display: block;
+        }
+
+        &__button {
+            position: absolute;
+            z-index: 30;
+            top: 121px;
+            right: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: $primary-color;
+        }
+
+        &__lines,
+        &__lines::before,
+        &__lines::after {
+            position: absolute;
+            width: 25px;
+            height: 2px;
+            background-color: $accent-color;
+        }
+
+        &__lines {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            &::before {
+                content: "";
+                top: -9px;
+            }
+
+            &::after {
+                content: "";
+                top: 9px;
+            }
+        }
+
+        &__navigation {
+            position: absolute;
+            z-index: 20;
+            overflow-y: auto;
+            top: -110%;
+            background-color: $secondary-color;
+
+            .menu_burger {
+                flex-direction: column;
+
+                @media (max-width: 600px) {
+                    align-items: center;
+                }
+            }
+        }
+
+        &_active {
+            .burger__lines {
+                background-color: transparent;
+
+                &::before {
+                    top: 0;
+                    transform: rotate(45deg);
+                }
+                &::after {
+                    top: 0;
+                    transform: rotate(-45deg);
+                }
+            }
+
+            .burger__navigation {
+                right: 0;
+                top: 143px;
+                height: 50%;
+                width: 320px;
+                padding: 45px;
+
+                @media (max-width: 600px) {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
