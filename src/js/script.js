@@ -11,3 +11,14 @@ testWebP(function (support) {
         document.querySelector('body').classList.add('webp');
     }
 });
+
+const burger = document.querySelector('.burger');
+const burgerButton = document.querySelector('.burger__button');
+const burgerMenu = document.querySelector('.menu_burger');
+
+burgerButton.addEventListener('click', function () {
+    burger.classList.toggle('burger_active');
+});
+burgerMenu.addEventListener('click', function () {
+    burger.classList.toggle('burger_active');
+});
